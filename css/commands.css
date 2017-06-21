@@ -1,0 +1,63 @@
+[data-command]::before {
+	font-family: Icons;
+	font-weight: normal;
+	font-size: 25px;
+	content: '';
+	color: #666666;
+	text-rendering: geometricPrecision;
+}
+
+
+[data-command="cmdlocations"]::before {
+	content: '\e056';
+	color: white;
+}
+
+[data-command="cmdsettings"]::before {
+	content: '\e027';
+	color: white;
+}
+
+button[type="menu"][aria-pressed="true"]::before {
+    color: rgba(1,1,1,0.7);
+}
+
+
+[data-command="cmditemfavourite"][aria-pressed="true"] {
+	background-color: palevioletred;
+}
+[data-command="cmditemfavourite"]::before {
+	content: '\e040';
+	color: palevioletred;
+}
+[data-command="cmditemfavourite"][aria-pressed="true"]::before {
+	color: white;
+}
+
+[data-command="cmdgeolocate"]::before {
+    content: '\e046';
+    color: #333333;
+    position: absolute;
+    left: 25px;
+    top: 6px;
+}
+[data-command="cmdgeolocate"][data-state="busy"]::before {
+    content: '\e044';
+}
+[data-command="cmdgeolocate"][data-state="error"]::before {
+    content: '\e093';
+    color: #999999;
+}
+
+[data-command="cmdgeolocate"][data-state="busy"] {
+    background-color: rgba(204, 204, 204, 0.9);
+    border: 1px solid #e1e1e1;
+    cursor:wait;
+}
+
+[data-command="cmdgeolocate"][data-state="error"] {
+    background-color: rgba(204, 204, 204, 0.44);
+    border: 1px solid #e1e1e1;
+    color: #999999;
+    cursor: not-allowed;
+}

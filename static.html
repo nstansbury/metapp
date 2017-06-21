@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>MetApp - Weather App</title>
+
+        <link rel="stylesheet" type="text/css" href="css/global.css">
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/commands.css">
+        <link rel="stylesheet" type="text/css" href="css/components.css">
+
+    </head>
+    <body>
+
+        <main id="app">
+            <div id="app-background">
+                <img src="images/backgrounds/weather.jpg">
+            </div>
+
+            <section id="homeview">
+                <img src="images/logo.png">
+                <input type="text" id="location" autocomplete="off" spellcheck="false" required="required" placeholder="Enter a place">
+                <button type="button">Or find my location</button>
+            </section>
+
+            <section id="forecastview">
+
+                <header>
+                    <nav id="app-navbar" data-menu="">
+                        <button type="menu" data-command="cmdlocations" aria-pressed="false"></button>
+                        <menu id="app-menu-locations">
+                            <h3>Locations</h3>
+                            <li>
+                                Locations
+                            </li>
+                        </menu>
+
+                        <button type="menu" data-command="cmdsettings" aria-pressed="false"></button>
+                        <menu id="app-menu-settings">
+                            <h3>Settings</h3>
+                            <li>
+                                Settings
+                            </li>
+                        </menu>
+                    </nav>
+                </header>
+
+                <div id="app-forecast-day" data-forecast-weather="200">
+                    <h3 id="app-forecast-date">Today</h3>
+                    <menu id="app-forecast-time">
+                        <ol data-component="cx-forecast-list" data-dir="column">
+                            <li data-component="cx-forecast-item" data-forecast-weather="802">
+                                <h3 data-anonid="time">10am</h3>
+                                <h4 data-anonid="temperature" data-units="celcius">24</h4>
+                            </li>
+                        </ol>
+                    </menu>
+                    <h1 id="app-forecast-location">London</h1>
+
+                    <div id="app-forecast-temp">
+                        <h2 id="temp-day-high" data-units="celcius">24</h2>
+                    </div>
+
+                    <div id="app-forecast-description">
+                        <h3 id="app-forecast-windtype">Gentle breeze</h3>
+                        <h3 id="app-forecast-cloudtype">Scattered clouds</h3>
+                    </div>
+                </div>
+
+                <ol data-component="cx-forecast-list" data-dir="row">
+                    <li data-component="cx-forecast-item" data-forecast-weather="200" data-selected="true">
+                        <h3>Today</h3>
+                        <h4 data-anonid="temperature" data-units="celcius">24</h4>
+                    </li>
+                    <li data-component="cx-forecast-item" data-forecast-weather="300">
+                        <h3>Tomorrow</h3>
+                        <h4 data-anonid="temperature" data-units="celcius">24</h4>
+                    </li>
+                    <li data-component="cx-forecast-item" data-forecast-weather="500">
+                        <h3>Thursday</h3>
+                        <h4 data-anonid="temperature" data-units="celcius">24</h4>
+                    </li>
+                    <li data-component="cx-forecast-item" data-forecast-weather="600">
+                        <h3>Friday</h3>
+                        <h4 data-anonid="temperature" data-units="celcius">24</h4>
+                    </li>
+                    <li data-component="cx-forecast-item" data-forecast-weather="520">
+                        <h3>Saturday</h3>
+                        <h4 data-anonid="temperature" data-units="celcius">24</h4>
+                    </li>
+                </ol>
+            </section>
+
+        </main>
+
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MetApp :: UI Components</title>
+    </head>
+    <body>
+
+        <template id="cx-appmain">
+            <main id="app">
+                <div id="app-background">
+                    <img src="images/backgrounds/weather.jpg">
+                </div>
+                <!-- App Views -->
+            </main>
+        </template>
+
+        <template id="cx-homeview">
+            <section id="homeview">
+                <img src="images/logo.svg">
+                <form action=".">
+                    <input type="text" name="search" id="location" autocomplete="off" spellcheck="false" required="required" placeholder="Enter a place">
+                </form>
+                <button type="button" data-command="cmdgeolocate" data-state="">Or find my location</button>
+            </section>
+        </template>
+
+
+        <template id="cx-forecastview">
+            <section id="forecastview">
+                <header>
+                    <nav id="app-navbar" data-menu="">
+                        <button type="menu" data-command="cmdlocations" aria-pressed="false"></button>
+                        <menu id="app-menu-locations">
+                            <h3>Locations</h3>
+                            <li>
+                                Locations
+                            </li>
+                        </menu>
+
+                        <button type="menu" data-command="cmdsettings" aria-pressed="false"></button>
+                        <menu id="app-menu-settings">
+                            <h3>Settings</h3>
+                            <li>
+                                Settings
+                            </li>
+                        </menu>
+                    </nav>
+                </header>
+                <!-- forecast components -->
+            </section>
+        </template>
+
+        <template id="cx-forecast">
+            <div id="app-forecast-day" data-forecast-weather="200" data-menu="">
+                <h3 id="app-forecast-date">Today</h3>
+                <menu id="app-forecast-time">
+                    <content></content>
+                    <!-- cx-forecast-list -->
+                </menu>
+                <h1 id="app-forecast-location">London</h1>
+
+                <div id="app-forecast-temp">
+                    <h2 id="temp-day-high" data-units="celcius">24</h2>
+                </div>
+
+                <div id="app-forecast-description">
+                    <h3 id="app-forecast-windtype">Gentle breeze</h3>
+                    <h3 id="app-forecast-cloudtype">Scattered clouds</h3>
+                </div>
+
+            </div>
+        </template>
+
+
+        <template id="cx-forecast-list">
+            <ol data-dir="row">
+                <!-- cx-forecast-item -->
+            </ol>
+        </template>
+
+        <template id="cx-forecast-item">
+            <li data-component="cx-forecast-item" data-forecast-weather="" data-selected="" data-day="" data-command="cmdselect">
+                <h3 data-anonid="title"></h3>
+                <h4 data-anonid="temperature" data-units="celcius">24</h4>
+            </li>
+        </template>
+
+
+    </body>
+</html>

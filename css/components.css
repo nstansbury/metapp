@@ -1,0 +1,132 @@
+[data-component] {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    transition: visibility 0.5s, opacity 0.5s ease-in-out;
+    visibility: inherit;
+    cursor: default;
+    user-select: none;
+}
+
+[data-component][hidden="true"] {
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+[data-component][display="false"] {
+    display: none;
+}
+
+
+[data-component="cx-forecast-list"] {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    z-index: 0;
+}
+
+[data-component="cx-forecast-list"][data-dir="column"] {
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+[data-component="cx-forecast-list"][data-dir="row"] {
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+
+[data-component="cx-forecast-item"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 33%;
+    width: 33%;
+    min-height: 120px;
+    background: rgba(255,255,255,0.3);
+    margin: 1px;
+}
+[data-component="cx-forecast-list"][data-dir="column"] > [data-component="cx-forecast-item"] {
+    width: 100%;
+}
+[data-component="cx-forecast-item"][data-selected="true"] {
+    background: transparent;
+}
+
+[data-component="cx-forecast-item"][data-selected="true"] > h3 {
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 568px) {
+    [data-component="cx-forecast-item"] {
+        min-width: 20%;
+        width: 20%;
+    }
+
+}
+
+
+[data-forecast-weather]:before {
+    font-family: Weathericons;
+    content: '';
+    color: rgba(255,255,255,0.8);
+    text-rendering: geometricPrecision;
+    font-size: 40px;
+}
+
+
+[data-forecast-weather^="2"]:before { /* Thunderstorm */
+    content: "\f002";
+    margin-bottom: -3%;
+}
+[data-forecast-weather^="3"]:before { /* Drizzle */
+    content: "\f01c";
+}
+[data-forecast-weather^="5"]:before { /* Rain */
+    content: "\f019";
+}
+[data-forecast-weather="511"]:before { /* Freezing Rain */
+    content: "\f015";
+}
+[data-forecast-weather="520"]:before { /* Shower Rain */
+    content: "\f01a";
+}
+[data-forecast-weather^="6"]:before { /* Snow */
+    content: "\f01b";
+}
+
+
+[data-forecast-weather="800"]:before { /* Clear */
+    content: "\f00d";
+}
+
+[data-forecast-weather="802"]:before { /* Scattered clouds */
+    content: "\f002";
+}
+
+[data-forecast-weather="803"]:before { /* Broken clouds */
+    content: "\f013";
+}
+
+[data-forecast-weather="801"]:before { /* Some clouds */
+    content: "\f013";
+}
+
+.wi-stars:before {
+  content: "\f077";
+}
+
+
+
+
+/* clouds
+f002
+f00d
+f013
+f012
+f011
+f041
+*/
