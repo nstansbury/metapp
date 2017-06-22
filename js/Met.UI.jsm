@@ -195,7 +195,7 @@ ForecastView.prototype = {
     /** @param {number} day */
     /** @returns {void} */
     select(day){
-        this.__forecast.select(day);
+        day = this.__forecast.select(day);
         this.__forecastlist.select(day);
     }
 }
@@ -212,16 +212,18 @@ UIForecast.prototype = {
     __proto__ : UI.Component.prototype,
 
     /** @param {number} day */
-    /** @returns {void} */
+    /** @returns {number} */
     select(day){
-        var dayname = getDayOfWeek(day);
         var dayforecast = this.__forecast.getDay(day);
+        if(!dayforecast) dayforecast = this.__forecast.getDay(day += 1); // Doesn't return previous 3 hours of day
+        var dayname = getDayOfWeek(day);
         this.setAttribute('data-forecast-weather', dayforecast[0].type);
         this.hostElement.querySelector('#app-forecast-date').textContent = dayname;
         this.hostElement.querySelector('#app-forecast-location').textContent = this.__forecast.location;
         this.hostElement.querySelector('#temp-day-high').textContent = dayforecast.max_temp;
         this.hostElement.querySelector('#app-forecast-cloudtype').textContent = dayforecast[0].description;
         this.hostElement.querySelector('#app-forecast-windtype').textContent = '';
+        return day;
     }
 }
 
@@ -232,7 +234,7 @@ function UIForecastList(forecast){
     var days = [...forecast.days];
     var today = new Date().getDay();
     for(var i = today; i < days.length; i++){
-        if(days[i]) this.appendChild(new UIForecastItem(days[i][0], days[i].max_temp));
+        if(days[i] !== undefined) this.appendChild(new UIForecastItem(days[i][0], days[i].max_temp));
     }
     if(today > 0) {
         for(var i = 0; i < today; i++){
